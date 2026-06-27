@@ -62,7 +62,7 @@ def write_storyboard(state: PipelineState) -> PipelineState:
     
     # Call openai/gpt-oss-120b for high-quality structured storyboard generation
     storyboard = call_groq_structured(
-        model="llama-3.3-70b-versatile",
+        model="qwen/qwen3.6-27b",
         system_prompt=system_prompt,
         user_prompt=user_prompt,
         response_model=Storyboard

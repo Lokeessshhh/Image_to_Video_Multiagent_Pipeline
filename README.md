@@ -10,15 +10,14 @@ The orchestration is built using **LangGraph** to model the pipeline as a statef
 
 ```mermaid
 graph TD
-    Start([Start]) --> IP[Intent Parser]
-    IP --> IA[Image Analyser]
-    IA --> SW[Storyboard Writer]
-    SW --> SG[Script Generator]
-    SG --> CF{Compiler & Fixer}
-    CF -- Compilation Failed & Retry < 3 --> SG
-    CF -- Compilation Succeeded --> RD[Renderer]
-    CF -- Retry Limit Reached --> Fail[Fail State]
-    RD --> Success([Success State])
+    intent_parser --> image_analyser
+    image_analyser --> storyboard_writer
+    storyboard_writer --> script_generator
+    script_generator --> compiler_fixer
+    compiler_fixer -->|compiled| renderer
+    compiler_fixer -->|compilation_failed| script_generator
+    compiler_fixer -->|failed| END
+    renderer --> END
 ```
 
 ### Graph Nodes & Execution Flow
@@ -39,7 +38,7 @@ Following the June 2026 Groq deprecations, we transitioned to a hybrid, dynamic 
 | :--- | :--- | :--- | :--- |
 | **Intent Parser** | `openai/gpt-oss-20b` | Groq | Ultra-fast, highly cost-effective model for generating structured JSON schemas. |
 | **Image Analyser** | `meta/llama-4-maverick-17b-128e-instruct` | NVIDIA NIM | **Multimodal Vision**. Processes batches of 5 images in parallel, bypassing Groq's 8,000 TPM limit. Fallback to `qwen/qwen3.6-27b` (batch size 1) is active. |
-| **Storyboard Writer** | `openai/gpt-oss-120b` | Groq | Large reasoning context to synthesize style guide rules and image lists into a storyboard. |
+| **Storyboard Writer** | `qwen/qwen3.6-27b` | Groq | Large reasoning context to synthesize style guide rules and image lists into a storyboard. |
 | **Script Generator** | `openai/gpt-oss-120b` | Groq | Premier code-generation capability to write valid React/TypeScript code. |
 | **Compiler & Fixer** | `openai/gpt-oss-120b` | Groq | High reasoning capacity to analyze typecheck errors and compile fixes. |
 

@@ -135,3 +135,132 @@ def test_storyboard_narrative_judge():
     # Verify quality threshold (should be >= 7)
     assert evaluation.narrative_coherence_score >= 7, f"Narrative coherence scored too low: {evaluation.narrative_coherence_score}"
     assert evaluation.timing_pacing_score >= 7, f"Timing and pacing scored too low: {evaluation.timing_pacing_score}"
+
+
+def test_storyboard_upbeat_judge():
+    """
+    Test that evaluates an upbeat/energetic storyboard using the LLM-as-judge.
+    Asserts that the storyboard passes a quality threshold.
+    """
+    storyboard = Storyboard(
+        scenes=[
+            StoryboardScene(
+                image_path="path/to/play1.jpg",
+                filename="play1.jpg",
+                duration_frames=45, # 1.5s at 30fps
+                caption="GET READY",
+                transition_type="cut",
+                transition_duration_frames=0,
+                zoom_animation="zoom_in"
+            ),
+            StoryboardScene(
+                image_path="path/to/play2.jpg",
+                filename="play2.jpg",
+                duration_frames=45,
+                caption="GAME ON",
+                transition_type="cut",
+                transition_duration_frames=0,
+                zoom_animation="zoom_in"
+            ),
+            StoryboardScene(
+                image_path="path/to/play3.jpg",
+                filename="play3.jpg",
+                duration_frames=45,
+                caption="MATCH POINT",
+                transition_type="cut",
+                transition_duration_frames=0,
+                zoom_animation="zoom_in"
+            ),
+            StoryboardScene(
+                image_path="path/to/play4.jpg",
+                filename="play4.jpg",
+                duration_frames=45,
+                caption="VICTORY CELEBRATION",
+                transition_type="cut",
+                transition_duration_frames=0,
+                zoom_animation="zoom_in"
+            )
+        ],
+        total_duration_frames=180,
+        narrative_arc="Starts with high energy warmup, jumps into intense game action, and finishes with celebratory victory pose."
+    )
+    
+    evaluation = run_llm_judge(
+        storyboard=storyboard,
+        pacing_intent="fast",
+        tone_intent="upbeat and energetic"
+    )
+    
+    print(f"\n--- LLM Judge Upbeat Critique Result ---")
+    print(f"Narrative Score: {evaluation.narrative_coherence_score}/10")
+    print(f"Timing & Pacing Score: {evaluation.timing_pacing_score}/10")
+    print(f"Reasoning: {evaluation.reasoning}")
+    print(f"---------------------------------")
+    
+    assert evaluation.narrative_coherence_score >= 7, f"Narrative coherence scored too low: {evaluation.narrative_coherence_score}"
+    assert evaluation.timing_pacing_score >= 7, f"Timing and pacing scored too low: {evaluation.timing_pacing_score}"
+
+
+def test_storyboard_corporate_judge():
+    """
+    Test that evaluates a corporate/professional storyboard using the LLM-as-judge.
+    Asserts that the storyboard passes a quality threshold.
+    """
+    storyboard = Storyboard(
+        scenes=[
+            StoryboardScene(
+                image_path="path/to/corp1.jpg",
+                filename="corp1.jpg",
+                duration_frames=90, # 3s at 30fps
+                caption="Welcome to FotoOwl's Annual Summit",
+                transition_type="fade",
+                transition_duration_frames=15,
+                zoom_animation="static"
+            ),
+            StoryboardScene(
+                image_path="path/to/corp2.jpg",
+                filename="corp2.jpg",
+                duration_frames=90,
+                caption="Keynote: Innovating Image Pipelines",
+                transition_type="fade",
+                transition_duration_frames=15,
+                zoom_animation="static"
+            ),
+            StoryboardScene(
+                image_path="path/to/corp3.jpg",
+                filename="corp3.jpg",
+                duration_frames=90,
+                caption="Interactive Workshops & Collaboration",
+                transition_type="fade",
+                transition_duration_frames=15,
+                zoom_animation="static"
+            ),
+            StoryboardScene(
+                image_path="path/to/corp4.jpg",
+                filename="corp4.jpg",
+                duration_frames=90,
+                caption="Shaping the Future of Personal Reels",
+                transition_type="fade",
+                transition_duration_frames=15,
+                zoom_animation="static"
+            )
+        ],
+        total_duration_frames=360,
+        narrative_arc="Introductory keynote presentation transitions to collaborative breakout sessions and closes with a forward-looking summary."
+    )
+    
+    evaluation = run_llm_judge(
+        storyboard=storyboard,
+        pacing_intent="moderate",
+        tone_intent="corporate and professional"
+    )
+    
+    print(f"\n--- LLM Judge Corporate Critique Result ---")
+    print(f"Narrative Score: {evaluation.narrative_coherence_score}/10")
+    print(f"Timing & Pacing Score: {evaluation.timing_pacing_score}/10")
+    print(f"Reasoning: {evaluation.reasoning}")
+    print(f"---------------------------------")
+    
+    assert evaluation.narrative_coherence_score >= 7, f"Narrative coherence scored too low: {evaluation.narrative_coherence_score}"
+    assert evaluation.timing_pacing_score >= 7, f"Timing and pacing scored too low: {evaluation.timing_pacing_score}"
+

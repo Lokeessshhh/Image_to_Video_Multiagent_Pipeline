@@ -130,9 +130,9 @@ def generate_script(state: PipelineState) -> PipelineState:
     )
 
     # 3. Call openai/gpt-oss-120b for coding
-    print("Generating Composition.tsx using llama-3.3-70b-versatile...")
+    print("Generating Composition.tsx using openai/gpt-oss-120b...")
     remotion_code = call_groq_chat(
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-120b",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}

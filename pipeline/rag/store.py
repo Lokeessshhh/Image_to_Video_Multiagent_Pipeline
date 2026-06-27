@@ -51,9 +51,14 @@ class LocalKeywordEmbeddingFunction(chromadb.EmbeddingFunction[Documents]):
         return LocalKeywordEmbeddingFunction()
 
 class RagStore:
-    def __init__(self, db_path="pipeline/rag/chroma_db"):
+    def __init__(self, db_path=None):
+        if db_path is None:
+            if "PYTEST_CURRENT_TEST" in os.environ:
+                db_path = "pipeline/rag/chroma_db_test"
+            else:
+                db_path = "pipeline/rag/chroma_db"
         # Ensure directory exists
-        os.makedirs(os.path.dirname(db_path), exist_ok=True)
+        os.makedirs(db_path, exist_ok=True)
         
         # Initialize persistent client
         self.client = chromadb.PersistentClient(path=db_path)

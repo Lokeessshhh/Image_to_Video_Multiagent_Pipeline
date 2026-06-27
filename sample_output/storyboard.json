@@ -1,0 +1,51 @@
+{
+  "scenes": [
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\ASL\\\\_ASL9923.jpg",
+      "filename": "_ASL9923.jpg",
+      "duration_frames": 120,
+      "caption": "Together in love",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 27,
+      "zoom_animation": "zoom_in"
+    },
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\ASL\\\\_ASL9969.jpg",
+      "filename": "_ASL9969.jpg",
+      "duration_frames": 120,
+      "caption": "A gentle embrace",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 27,
+      "zoom_animation": "zoom_in"
+    },
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\ASL\\\\_ASL9976.jpg",
+      "filename": "_ASL9976.jpg",
+      "duration_frames": 120,
+      "caption": "Tender moments",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 27,
+      "zoom_animation": "zoom_in"
+    },
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\ASL\\\\_ASL9984.jpg",
+      "filename": "_ASL9984.jpg",
+      "duration_frames": 120,
+      "caption": "Quiet togetherness",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 27,
+      "zoom_animation": "zoom_in"
+    },
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\ASL\\\\_ASL9995.jpg",
+      "filename": "_ASL9995.jpg",
+      "duration_frames": 120,
+      "caption": "Forever begins",
+      "transition_type": "cut",
+      "transition_duration_frames": 0,
+      "zoom_animation": "zoom_in"
+    }
+  ],
+  "total_duration_frames": 492,
+  "narrative_arc": "The reel opens with the couple standing hand\u2011in\u2011hand, then moves through intimate embraces, tender close\u2011ups, a relaxed moment on a bench, and culminates in a timeless portrait, each lingering gently with slow zooms and soft crossfades."
+}

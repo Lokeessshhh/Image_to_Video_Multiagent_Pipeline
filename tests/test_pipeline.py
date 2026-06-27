@@ -38,7 +38,8 @@ def test_intent_parser(mock_call):
         "compile_errors": [],
         "retry_count": 0,
         "status": "starting",
-        "error_report": None
+        "error_report": None,
+        "category": ""
     }
     
     new_state = parse_intent(state)
@@ -80,7 +81,8 @@ def test_image_analyser(mock_nvidia, mock_images):
         "compile_errors": [],
         "retry_count": 0,
         "status": "starting",
-        "error_report": None
+        "error_report": None,
+        "category": ""
     }
     
     with patch.dict("os.environ", {"NVIDIA_API_KEY": "fake_key"}):
@@ -118,7 +120,8 @@ def test_storyboard_writer(mock_call):
         "compile_errors": [],
         "retry_count": 0,
         "status": "images_analyzed",
-        "error_report": None
+        "error_report": None,
+        "category": ""
     }
     
     new_state = write_storyboard(state)
@@ -130,7 +133,7 @@ def test_storyboard_writer(mock_call):
 @patch("pipeline.agents.compiler_fixer.subprocess.run")
 @patch("pipeline.agents.script_generator.call_groq_chat")
 @patch("pipeline.agents.storyboard_writer.call_groq_structured")
-@patch("pipeline.agents.image_analyser.call_groq_chat")
+@patch("pipeline.agents.image_analyser.call_nvidia_chat")
 @patch("pipeline.agents.intent_parser.call_groq_structured")
 @patch("shutil.copy")
 def test_full_pipeline_compilation_retry(mock_copy, mock_intent, mock_analyse, mock_storyboard, mock_script, mock_sub_run, mock_images):
@@ -184,7 +187,8 @@ def test_full_pipeline_compilation_retry(mock_copy, mock_intent, mock_analyse, m
     from unittest.mock import mock_open
     with patch("os.path.exists", return_value=True), \
          patch("os.makedirs"), \
-         patch("builtins.open", mock_open()):
+         patch("builtins.open", mock_open()), \
+         patch.dict("os.environ", {"NVIDIA_API_KEY": "fake_key"}):
         # Create pipeline graph
         graph = create_pipeline_graph()
         
@@ -198,7 +202,8 @@ def test_full_pipeline_compilation_retry(mock_copy, mock_intent, mock_analyse, m
             "compile_errors": [],
             "retry_count": 0,
             "status": "starting",
-            "error_report": None
+            "error_report": None,
+            "category": ""
         }
         
         # Execute the compiled graph

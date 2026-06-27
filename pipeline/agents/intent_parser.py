@@ -22,7 +22,7 @@ def parse_intent(state: PipelineState) -> PipelineState:
     
     # Call Groq with openai/gpt-oss-20b and Pydantic structured output
     video_intent = call_groq_structured(
-        model="llama-3.1-8b-instant",
+        model="openai/gpt-oss-20b",
         system_prompt=system_prompt,
         user_prompt=user_prompt_instruction,
         response_model=VideoIntent

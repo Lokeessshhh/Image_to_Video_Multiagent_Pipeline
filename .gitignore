@@ -23,6 +23,7 @@ tmp/
 
 # Local database
 pipeline/rag/chroma_db/
+pipeline/rag/chroma_db_test/
 
 # Media assets
 input_images/

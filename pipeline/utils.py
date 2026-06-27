@@ -121,6 +121,12 @@ def call_groq_chat(
             )
             return response.choices[0].message.content
         except Exception as e:
+            err_msg = str(e)
+            is_rate_limit = "rate_limit" in err_msg or "429" in err_msg or "RateLimit" in type(e).__name__
+            if is_rate_limit and model not in ("llama-3.3-70b-versatile", "llama-3.1-8b-instant"):
+                fallback = "llama-3.3-70b-versatile" if ("120b" in model or "27b" in model) else "llama-3.1-8b-instant"
+                print(f" -> Model '{model}' rate limited. Falling back to '{fallback}'...")
+                model = fallback
             if attempt == retries - 1:
                 raise e
             wait_time = 2 ** attempt

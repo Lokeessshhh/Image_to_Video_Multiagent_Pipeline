@@ -1,4 +1,5 @@
-import { AbsoluteFill, Sequence, interpolate, useCurrentFrame, staticFile } from 'remotion';
+import { AbsoluteFill, interpolate, useCurrentFrame, staticFile, Sequence } from 'remotion';
+import storyboard from './storyboard.json';
 
 const safeInterpolate = (value: number, inputRange: number[], outputRange: number[], options?: { extrapolateLeft?: 'clamp' | 'extend'; extrapolateRight?: 'clamp' | 'extend' }) => {
   if (inputRange[0] === inputRange[1]) return outputRange[0];
@@ -21,32 +22,31 @@ interface Storyboard {
   narrative_arc: string;
 }
 
-import storyboard from './storyboard.json';
-
 const Slide: React.FC<{ scene: StoryboardScene, startFrame: number, overlap: number }> = ({ scene, startFrame, overlap }) => {
   const frame = useCurrentFrame();
-  const imageSrc = staticFile("images/" + scene.filename);
 
   const opacity = safeInterpolate(
     frame,
-    [0, overlap],
+    [startFrame, startFrame + overlap],
     [0, 1],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const scale = safeInterpolate(
     frame,
-    [0, scene.duration_frames],
+    [startFrame, startFrame + scene.duration_frames],
     [1.0, 1.15],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
+  const imgUrl = staticFile("images/" + scene.filename);
+
   return (
     <AbsoluteFill style={{ opacity }}>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
-        <img src={imageSrc} style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(20px) brightness(0.4)' }} />
-        <img src={imageSrc} style={{ position: 'relative', height: '100%', maxWidth: '100%', objectFit: 'contain', transform: `scale(${scale})` }} />
-        <div style={{ position: 'absolute', bottom: 0, width: '100%', height: '20%', backgroundColor: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.5))' }} />
+        <img src={imgUrl} style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(20px) brightness(0.4)' }} />
+        <img src={imgUrl} style={{ position: 'relative', height: '100%', maxWidth: '100%', objectFit: 'contain', transform: `scale(${scale})` }} />
+        <div style={{ position: 'absolute', bottom: 0, width: '100%', height: '20%', backgroundColor: 'linear-gradient(0deg, rgba(0,0,0,0.5), transparent)' }} />
         <div style={{ position: 'absolute', bottom: 20, width: '100%', textAlign: 'center', color: 'white', fontSize: 24 }}>{scene.caption}</div>
       </div>
     </AbsoluteFill>
@@ -58,7 +58,7 @@ export const MainVideo: React.FC = () => {
   return (
     <AbsoluteFill>
       {storyboard.scenes.map((scene, index) => {
-        const overlap = scene.transition_type === 'crossfade' ? scene.transition_duration_frames : 0;
+        const overlap = index === 0 ? 0 : scene.transition_duration_frames;
         return (
           <Sequence from={startFrame} key={index}>
             <Slide scene={scene} startFrame={startFrame} overlap={overlap} />

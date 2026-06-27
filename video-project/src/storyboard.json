@@ -1,60 +1,60 @@
 {
   "scenes": [
     {
+      "image_path": "C:\\Users\\rosha\\Documents\\Assignments\\FotoOwl\\input_images\\DSC\\DSC_4474.jpg",
+      "filename": "DSC_4474.jpg",
+      "duration_frames": 120,
+      "caption": "A quiet moment of grace",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 24,
+      "zoom_animation": "zoom_in"
+    },
+    {
       "image_path": "C:\\Users\\rosha\\Documents\\Assignments\\FotoOwl\\input_images\\DSC\\DSC_4560.jpg",
       "filename": "DSC_4560.jpg",
       "duration_frames": 120,
       "caption": "Adorned with love",
       "transition_type": "crossfade",
-      "transition_duration_frames": 30,
-      "zoom_animation": "zoom_in"
-    },
-    {
-      "image_path": "C:\\Users\\rosha\\Documents\\Assignments\\FotoOwl\\input_images\\DSC\\DSC_4833.jpg",
-      "filename": "DSC_4833.jpg",
-      "duration_frames": 120,
-      "caption": "Blessings of yellow",
-      "transition_type": "crossfade",
-      "transition_duration_frames": 30,
-      "zoom_animation": "zoom_in"
-    },
-    {
-      "image_path": "C:\\Users\\rosha\\Documents\\Assignments\\FotoOwl\\input_images\\DSC\\DSC_4830.jpg",
-      "filename": "DSC_4830.jpg",
-      "duration_frames": 120,
-      "caption": "A radiant smile",
-      "transition_type": "crossfade",
-      "transition_duration_frames": 30,
+      "transition_duration_frames": 24,
       "zoom_animation": "zoom_in"
     },
     {
       "image_path": "C:\\Users\\rosha\\Documents\\Assignments\\FotoOwl\\input_images\\DSC\\DSC_4491.jpg",
       "filename": "DSC_4491.jpg",
       "duration_frames": 120,
-      "caption": "Together in nature",
+      "caption": "Together in every step",
       "transition_type": "crossfade",
-      "transition_duration_frames": 30,
+      "transition_duration_frames": 24,
       "zoom_animation": "zoom_in"
     },
     {
       "image_path": "C:\\Users\\rosha\\Documents\\Assignments\\FotoOwl\\input_images\\DSC\\DSC_4496.jpg",
       "filename": "DSC_4496.jpg",
       "duration_frames": 120,
-      "caption": "Embracing the moment",
+      "caption": "Wrapped in warmth",
       "transition_type": "crossfade",
-      "transition_duration_frames": 30,
+      "transition_duration_frames": 24,
       "zoom_animation": "zoom_in"
     },
     {
       "image_path": "C:\\Users\\rosha\\Documents\\Assignments\\FotoOwl\\input_images\\DSC\\DSC_4509.jpg",
       "filename": "DSC_4509.jpg",
       "duration_frames": 120,
-      "caption": "Forever connected",
+      "caption": "Hearts aligned",
       "transition_type": "crossfade",
-      "transition_duration_frames": 30,
+      "transition_duration_frames": 24,
+      "zoom_animation": "zoom_in"
+    },
+    {
+      "image_path": "C:\\Users\\rosha\\Documents\\Assignments\\FotoOwl\\input_images\\DSC\\DSC_4830.jpg",
+      "filename": "DSC_4830.jpg",
+      "duration_frames": 120,
+      "caption": "Joy in every smile",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 24,
       "zoom_animation": "zoom_in"
     }
   ],
-  "total_duration_frames": 570,
-  "narrative_arc": "A cinematic journey through a traditional celebration, beginning with the bride's serene preparation and henna details, transitioning to the joyful application of turmeric, and culminating in intimate, romantic moments between the couple amidst lush tropical surroundings."
+  "total_duration_frames": 600,
+  "narrative_arc": "The video opens with a serene portrait of the bride, highlighting her traditional attire and contemplative mood. It transitions to intimate moments with the groom, capturing their connection through gentle embraces and shared glances. The sequence concludes with a radiant smile, celebrating the joy and warmth of their union."
 }

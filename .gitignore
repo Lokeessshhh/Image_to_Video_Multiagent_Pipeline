@@ -1,0 +1,29 @@
+# Environment variables
+.env
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Remotion & video outputs
+video-project/out/
+video-project/build/
+output/
+tmp/
+
+# Local database
+pipeline/rag/chroma_db/
+
+# Media assets
+input_images/
+video-project/public/images/

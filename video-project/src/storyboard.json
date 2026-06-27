@@ -1,0 +1,51 @@
+{
+  "scenes": [
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\DSC\\\\DSC_4474.jpg",
+      "filename": "DSC_4474.jpg",
+      "duration_frames": 120,
+      "caption": "In the serenity of nature",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 24,
+      "zoom_animation": "zoom_in"
+    },
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\DSC\\\\DSC_4491.jpg",
+      "filename": "DSC_4491.jpg",
+      "duration_frames": 120,
+      "caption": "Love blossoms in every moment",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 24,
+      "zoom_animation": "zoom_in"
+    },
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\DSC\\\\DSC_4509.jpg",
+      "filename": "DSC_4509.jpg",
+      "duration_frames": 120,
+      "caption": "Tender moments, forever etched",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 24,
+      "zoom_animation": "zoom_in"
+    },
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\DSC\\\\DSC_4830.jpg",
+      "filename": "DSC_4830.jpg",
+      "duration_frames": 120,
+      "caption": "Joy in every celebration",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 24,
+      "zoom_animation": "zoom_in"
+    },
+    {
+      "image_path": "C:\\\\Users\\\\rosha\\\\Documents\\\\Assignments\\\\FotoOwl\\\\input_images\\\\DSC\\\\DSC_4848.jpg",
+      "filename": "DSC_4848.jpg",
+      "duration_frames": 120,
+      "caption": "Dancing to the rhythm of life",
+      "transition_type": "crossfade",
+      "transition_duration_frames": 24,
+      "zoom_animation": "zoom_in"
+    }
+  ],
+  "total_duration_frames": 504,
+  "narrative_arc": "The narrative arc of this cinematic video is a sentimental and romantic journey, showcasing the beauty of love, nature, and celebration. It begins with a serene scene, progresses through intimate moments of love, and culminates in a joyful celebration, all while maintaining a slow and emotional pace."
+}
